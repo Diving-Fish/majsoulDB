@@ -168,7 +168,7 @@ public class Controller {
             String tag = "";
             for (Object g : group_l) {
                 Integer _g = (Integer) g;
-                tag += _g + '_';
+                tag += _g.toString() + "_";
                 JSONArray players2 = new JSONArray();
                 JSONArray players3 = new JSONArray();
                 Ready ready = readyRepo.findByTeamIdAndRound((long) _g, (long) round);
