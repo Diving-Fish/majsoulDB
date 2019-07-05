@@ -15,7 +15,7 @@ public class Player {
     private String name;
 
     @Column
-    private Long team_id;
+    private Long teamId;
 
     public String getName() {
         return name;
@@ -25,11 +25,19 @@ public class Player {
         this.name = name;
     }
 
-    public Long getTeam_id() {
-        return team_id;
+    public Long getTeamId() {
+        return teamId;
     }
 
-    public void setTeam_id(Long team_id) {
-        this.team_id = team_id;
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

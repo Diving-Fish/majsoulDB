@@ -2,15 +2,20 @@ package com.diving_fish.majsouldb.Controller;
 
 import com.diving_fish.majsouldb.Entity.Match;
 import com.diving_fish.majsouldb.Entity.Player;
+import com.diving_fish.majsouldb.Entity.Ready;
 import com.diving_fish.majsouldb.Entity.Team;
 import com.diving_fish.majsouldb.Repository.MatchRepo;
 import com.diving_fish.majsouldb.Repository.PlayerRepo;
+import com.diving_fish.majsouldb.Repository.ReadyRepo;
 import com.diving_fish.majsouldb.Repository.TeamRepo;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
@@ -23,6 +28,9 @@ public class Controller {
 
     @Autowired
     private MatchRepo matchRepo;
+
+    @Autowired
+    private ReadyRepo readyRepo;
 
     @PostMapping(value = "/add_team")
     @ResponseBody
@@ -37,8 +45,65 @@ public class Controller {
     public void addPlayer(@RequestParam("name") String name, @RequestParam("team_id") Long id) {
         Player player = new Player();
         player.setName(name);
-        player.setTeam_id(id);
+        player.setTeamId(id);
         playerRepo.save(player);
+    }
+
+    @GetMapping(value = "/getallteams")
+    public JSONArray getAllTeams() {
+        JSONArray jsonArray = new JSONArray();
+        List<Team> teams = teamRepo.findAll();
+        for (Team team : teams) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("team_id", team.getId());
+            jsonObject.put("name", team.getName());
+            jsonArray.add(jsonObject);
+        }
+        return jsonArray;
+    }
+
+    @GetMapping(value = "/getplayers")
+    @ResponseBody
+    public JSONObject getPlayers(@RequestParam("team_id") Long id) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("team_id", id);
+        Team team = teamRepo.findTeamById(id);
+        jsonObject.put("team_name", team.getName());
+        List<Player> players = playerRepo.findPlayersByTeamId(id);
+        JSONArray jsonArray = new JSONArray();
+        for (Player player: players) {
+            JSONObject jsonObject1 = new JSONObject();
+            jsonObject1.put("id", player.getId());
+            jsonObject1.put("name", player.getName());
+            jsonArray.add(jsonObject1);
+        }
+        jsonObject.put("team", jsonArray);
+        return jsonObject;
+    }
+
+    @GetMapping(value = "/getready")
+    @ResponseBody
+    public JSONArray getReady(@RequestParam("team_id") Long id, @RequestParam("round") Long round) {
+        JSONArray array = new JSONArray();
+        Ready ready = readyRepo.findByTeamIdAndRound(id, round);
+        if (ready == null) return array;
+        array.addAll(Arrays.asList(ready.get()));
+        return array;
+    }
+
+    @PostMapping(value = "/ready")
+    @ResponseBody
+    public boolean ready(@RequestBody JSONObject body) {
+        Long round = body.getLong("round");
+        Long team_id = body.getLong("team_id");
+        Ready ready = readyRepo.findByTeamIdAndRound(team_id, round);
+        if (ready == null) {
+            ready = new Ready(team_id, round, body.getLong("id1"), body.getLong("id2"),body.getLong("id3"),body.getLong("id4"),body.getLong("id5"));
+            readyRepo.save(ready);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @PostMapping(value = "/add_match")
