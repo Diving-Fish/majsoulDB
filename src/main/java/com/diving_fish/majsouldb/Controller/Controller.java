@@ -103,6 +103,20 @@ public class Controller {
         return array;
     }
 
+    @GetMapping(value = "/getallready")
+    @ResponseBody
+    public JSONArray getReady(@RequestParam("round") Long round) {
+        JSONArray array = new JSONArray();
+        for (Ready ready : readyRepo.findAllByRound(round)) {
+            Long l[] = ready.get();
+            JSONObject object = new JSONObject();
+            object.put("team_id", l[0]);
+            object.put("players", Arrays.asList(l).subList(2, 7));
+            array.add(object);
+        }
+        return array;
+    }
+
     @PostMapping(value = "/ready")
     @ResponseBody
     public boolean ready(@RequestBody JSONObject body) {
