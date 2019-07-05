@@ -40,6 +40,10 @@ public class Ready {
         this.id5 = id5;
     }
 
+    public Ready() {
+
+    }
+
     public Long[] get() {
         return new Long[]{teamId, round, id1, id2, id3, id4, id5};
     }
