@@ -111,7 +111,13 @@ public class Controller {
             Long l[] = ready.get();
             JSONObject object = new JSONObject();
             object.put("team_id", l[0]);
-            object.put("players", Arrays.asList(l).subList(2, 7));
+            List<Long> longList = Arrays.asList(l).subList(2, 7);
+            object.put("players", longList);
+            List<String> nameList = new ArrayList<>();
+            for (Long l2 : longList) {
+                nameList.add(playerRepo.findPlayerById(l2).getName());
+            }
+            object.put("playernames", nameList);
             array.add(object);
         }
         return array;
