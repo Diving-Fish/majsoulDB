@@ -167,11 +167,11 @@ public class Controller {
             JSONArray playerIds = new JSONArray();
             String tag = "";
             for (Object g : group_l) {
-                Long _g = (Long) g;
+                Integer _g = (Integer) g;
                 tag += _g + '_';
                 JSONArray players2 = new JSONArray();
                 JSONArray players3 = new JSONArray();
-                Ready ready = readyRepo.findByTeamIdAndRound(_g, (long) round);
+                Ready ready = readyRepo.findByTeamIdAndRound((long) _g, (long) round);
                 if (ready != null) {
                     players2.addAll(Arrays.asList(ready.get()).subList(2, 7));
                     for (int i = 2; i < 7; i++) {
