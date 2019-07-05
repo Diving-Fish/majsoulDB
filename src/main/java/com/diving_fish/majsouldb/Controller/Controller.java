@@ -1,20 +1,16 @@
 package com.diving_fish.majsouldb.Controller;
 
-import com.diving_fish.majsouldb.Entity.Match;
-import com.diving_fish.majsouldb.Entity.Player;
-import com.diving_fish.majsouldb.Entity.Ready;
-import com.diving_fish.majsouldb.Entity.Team;
-import com.diving_fish.majsouldb.Repository.MatchRepo;
-import com.diving_fish.majsouldb.Repository.PlayerRepo;
-import com.diving_fish.majsouldb.Repository.ReadyRepo;
-import com.diving_fish.majsouldb.Repository.TeamRepo;
+import com.diving_fish.majsouldb.Entity.*;
+import com.diving_fish.majsouldb.Repository.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -31,6 +27,9 @@ public class Controller {
 
     @Autowired
     private ReadyRepo readyRepo;
+
+    @Autowired
+    private GroupRepo groupRepo;
 
     @PostMapping(value = "/add_team")
     @ResponseBody
@@ -142,5 +141,18 @@ public class Controller {
                 scores.getLong(3)
         );
         matchRepo.save(match);
+    }
+
+    @PostMapping(value = "/settinggroup")
+    @ResponseBody
+    public void settingGroup(@RequestBody JSONArray body) {
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (Object o : body) {
+           arrayList.add((Long) o);
+        }
+        Collections.shuffle(arrayList);
+        for (int i = 0; i < body.size(); i += 4) {
+            groupRepo.save(new Group(1, arrayList.get(i+1), arrayList.get(i+2), arrayList.get(i+3), arrayList.get(i)));
+        }
     }
 }
