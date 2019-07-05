@@ -49,6 +49,19 @@ public class Controller {
         playerRepo.save(player);
     }
 
+    @GetMapping(value = "/getallplayers")
+    public JSONArray getAllPlayers() {
+        JSONArray jsonArray1 = new JSONArray();
+        JSONArray jsonArray = getAllTeams();
+        for (Object object: jsonArray) {
+            JSONObject object1 = (JSONObject) object;
+            long team_id = object1.getLong("team_id");
+            object1 = getPlayers(team_id);
+            jsonArray1.add(object1);
+        }
+        return jsonArray1;
+    }
+
     @GetMapping(value = "/getallteams")
     public JSONArray getAllTeams() {
         JSONArray jsonArray = new JSONArray();
@@ -56,7 +69,7 @@ public class Controller {
         for (Team team : teams) {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("team_id", team.getId());
-            jsonObject.put("name", team.getName());
+            jsonObject.put("team_name", team.getName());
             jsonArray.add(jsonObject);
         }
         return jsonArray;
