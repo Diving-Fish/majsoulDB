@@ -148,20 +148,54 @@ public class Controller {
         Match match = new Match(
                 body.getInt("round"),
                 body.getInt("position"),
-                players.getLong(0),
-                teams.getLong(0),
-                scores.getLong(0),
-                players.getLong(1),
-                teams.getLong(1),
-                scores.getLong(1),
-                players.getLong(2),
-                teams.getLong(2),
-                scores.getLong(2),
-                players.getLong(3),
-                teams.getLong(3),
-                scores.getLong(3)
+                players,
+                teams,
+                scores
         );
         matchRepo.save(match);
+    }
+
+    @GetMapping(value = "/generate_auto_match")
+    @ResponseBody
+    public JSONArray generateAutoMatch(@RequestParam("round") int round) {
+        JSONArray resp = new JSONArray();
+        JSONArray groups = getGroup(round);
+        for (Object group : groups) {
+            List<Long> group_l = (List<Long>) group;
+            JSONObject object = new JSONObject();
+            JSONArray players = new JSONArray();
+            JSONArray playerIds = new JSONArray();
+            String tag = "";
+            for (Long g : group_l) {
+                tag += g + '_';
+                JSONArray players2 = new JSONArray();
+                JSONArray players3 = new JSONArray();
+                Ready ready = readyRepo.findByTeamIdAndRound(g, (long) round);
+                if (ready != null) {
+                    players2.addAll(Arrays.asList(ready.get()).subList(2, 7));
+                    for (int i = 2; i < 7; i++) {
+                        players3.add(playerRepo.findPlayerById(ready.get()[i]).getName());
+                    }
+                } else {
+                    for (int i = 0; i < 5; i++) {
+                        players2.add(-1);
+                        players3.add("_COM_");
+                    }
+                }
+                players.add(players3);
+                playerIds.add(players2);
+            }
+            tag = tag.substring(0, tag.length() - 1);
+            object.put("tag", tag);
+            object.put("init_points", 100000);
+            object.put("players", players);
+            object.put("player_ids", playerIds);
+            object.put("random_seat", true);
+            object.put("spectating", true);
+            object.put("broadcast", true);
+            resp.add(object);
+        }
+        return resp;
     }
 
     @GetMapping(value = "/getgroup")

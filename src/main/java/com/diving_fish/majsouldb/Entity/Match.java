@@ -1,6 +1,9 @@
 package com.diving_fish.majsouldb.Entity;
 
+import net.sf.json.JSONArray;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "matches")
@@ -55,20 +58,20 @@ public class Match {
 
     }
 
-    public Match(Integer round, Integer position, Long teamPlayer1, Long teamId1, Long teamScore1, Long teamPlayer2, Long teamId2, Long teamScore2, Long teamPlayer3, Long teamId3, Long teamScore3, Long teamPlayer4, Long teamId4, Long teamScore4) {
+    public Match(Integer round, Integer position, JSONArray teamIds, JSONArray playerIds, JSONArray scores) {
         this.round = round;
         this.position = position;
-        this.teamPlayer1 = teamPlayer1;
-        this.teamId1 = teamId1;
-        this.teamScore1 = teamScore1;
-        this.teamPlayer2 = teamPlayer2;
-        this.teamId2 = teamId2;
-        this.teamScore2 = teamScore2;
-        this.teamPlayer3 = teamPlayer3;
-        this.teamId3 = teamId3;
-        this.teamScore3 = teamScore3;
-        this.teamPlayer4 = teamPlayer4;
-        this.teamId4 = teamId4;
-        this.teamScore4 = teamScore4;
+        this.teamPlayer1 = playerIds.getLong(0);
+        this.teamId1 = teamIds.getLong(0);
+        this.teamScore1 = scores.getLong(0);
+        this.teamPlayer2 = playerIds.getLong(1);
+        this.teamId2 = teamIds.getLong(1);
+        this.teamScore2 = scores.getLong(1);
+        this.teamPlayer3 = playerIds.getLong(2);
+        this.teamId3 = teamIds.getLong(2);
+        this.teamScore3 = scores.getLong(2);
+        this.teamPlayer4 = playerIds.getLong(3);
+        this.teamId4 = teamIds.getLong(3);
+        this.teamScore4 = scores.getLong(3);
     }
 }
