@@ -143,6 +143,16 @@ public class Controller {
         matchRepo.save(match);
     }
 
+    @GetMapping(value = "/getgroup")
+    @ResponseBody
+    public JSONArray getGroup(@RequestParam Integer round) {
+        JSONArray jsonArray = new JSONArray();
+        for (Group group : groupRepo.findAllByRound(round)) {
+            jsonArray.add(group.get());
+        }
+        return jsonArray;
+    }
+
     @PostMapping(value = "/settinggroup")
     @ResponseBody
     public void settingGroup(@RequestBody List<Long> body) {

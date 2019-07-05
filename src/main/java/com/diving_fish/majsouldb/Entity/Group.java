@@ -1,5 +1,7 @@
 package com.diving_fish.majsouldb.Entity;
 
+import net.sf.json.JSONArray;
+
 import javax.persistence.*;
 
 @Entity
@@ -30,5 +32,18 @@ public class Group {
         this.t2 = t2;
         this.t3 = t3;
         this.t4 = t4;
+    }
+
+    public Group() {
+
+    }
+
+    public JSONArray get() {
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(this.t1);
+        jsonArray.add(this.t2);
+        jsonArray.add(this.t3);
+        jsonArray.add(this.t4);
+        return jsonArray;
     }
 }
