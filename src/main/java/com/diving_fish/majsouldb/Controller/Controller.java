@@ -155,7 +155,7 @@ public class Controller {
         matchRepo.save(match);
     }
 
-    @GetMapping(value = "/generate_auto_match")
+    @GetMapping(value = "/generateautomatch")
     @ResponseBody
     public JSONArray generateAutoMatch(@RequestParam("round") int round) {
         JSONArray resp = new JSONArray();
