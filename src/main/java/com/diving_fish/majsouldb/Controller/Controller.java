@@ -145,14 +145,10 @@ public class Controller {
 
     @PostMapping(value = "/settinggroup")
     @ResponseBody
-    public void settingGroup(@RequestBody JSONArray body) {
-        ArrayList<Long> arrayList = new ArrayList<>();
-        for (Object o : body) {
-           arrayList.add((Long) o);
-        }
-        Collections.shuffle(arrayList);
+    public void settingGroup(@RequestBody List<Long> body) {
+        Collections.shuffle(body);
         for (int i = 0; i < body.size(); i += 4) {
-            groupRepo.save(new Group(1, arrayList.get(i+1), arrayList.get(i+2), arrayList.get(i+3), arrayList.get(i)));
+            groupRepo.save(new Group(1, body.get(i+1), body.get(i+2), body.get(i+3), body.get(i)));
         }
     }
 }

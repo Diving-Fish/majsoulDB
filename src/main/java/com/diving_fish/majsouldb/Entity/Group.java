@@ -3,7 +3,7 @@ package com.diving_fish.majsouldb.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "group")
+@Table(name = "groupes")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
