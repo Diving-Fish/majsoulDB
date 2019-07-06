@@ -142,9 +142,9 @@ public class Controller {
     @PostMapping(value = "/add_match")
     @ResponseBody
     public void addMatch(@RequestBody JSONObject body) {
-        JSONArray players = body.getJSONArray("players");
-        JSONArray teams = body.getJSONArray("teams");
-        JSONArray scores = body.getJSONArray("scores");
+        Long players = body.getLong("player");
+        Long teams = body.getLong("team");
+        Long scores = body.getLong("score");
         Match match = new Match(
                 body.getInt("round"),
                 body.getInt("position"),
