@@ -93,6 +93,23 @@ public class Controller {
         return jsonObject;
     }
 
+    @GetMapping(value = "/team")
+    @ResponseBody
+    public String team(@RequestParam("team_id") Long id) {
+        Team team = teamRepo.findTeamById(id);
+        if (team == null) {
+            return "未找到队伍：" + id;
+        }
+        else {
+            String s = "队伍ID：" + id + "\n队伍名称：" + team.getName() + "\n队员：\n";
+            List<Player> players = playerRepo.findPlayersByTeamId(id);
+            for (Player player: players) {
+                s += player.getName() + "（" + player.getId() + "）\n";
+            }
+            return s;
+        }
+    }
+
     @GetMapping(value = "/getready")
     @ResponseBody
     public JSONArray getReady(@RequestParam("team_id") Long id, @RequestParam("round") Long round) {

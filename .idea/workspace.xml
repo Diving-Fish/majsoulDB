@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43c7fde9-bd34-41eb-92c6-4bd0cfa85e8c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Ready.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="342">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -30,16 +31,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Match.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+            <state relative-caret-position="180">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Group.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="144">
               <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -59,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="143" column="56" lean-forward="true" selection-start-line="143" selection-start-column="56" selection-end-line="143" selection-end-column="56" />
+            <state relative-caret-position="522">
+              <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,8 +131,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/ReadyRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Ready.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Match.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -225,8 +226,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,18 +302,20 @@
       <workItem from="1562307883046" duration="945000" />
       <workItem from="1562321631145" duration="12874000" />
       <workItem from="1562350319652" duration="4151000" />
-      <workItem from="1562386200057" duration="1696000" />
+      <workItem from="1562386200057" duration="3494000" />
+      <workItem from="1562402278643" duration="408000" />
+      <workItem from="1562426507731" duration="287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23208000" />
+    <option name="totallyTimeSpent" value="25701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25956738" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26622295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -328,7 +331,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33043477" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3326087" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -452,13 +455,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Group.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Ready.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="342">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -472,31 +472,34 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Match.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Ready.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="143" column="56" lean-forward="true" selection-start-line="143" selection-start-column="56" selection-end-line="143" selection-end-column="56" />
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Repository/MatchRepo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Entity/Group.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/diving_fish/majsouldb/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
