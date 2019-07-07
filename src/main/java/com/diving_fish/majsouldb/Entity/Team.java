@@ -13,6 +13,9 @@ public class Team {
     @Column
     private String name;
 
+    @Column
+    private Boolean enabled;
+
     public String getName() {
         return name;
     }

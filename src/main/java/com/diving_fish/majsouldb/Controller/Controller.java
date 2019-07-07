@@ -74,6 +74,19 @@ public class Controller {
         return jsonArray;
     }
 
+    @GetMapping(value = "/getenabledteams")
+    public JSONArray getEnabledTeams() {
+        JSONArray jsonArray = new JSONArray();
+        List<Team> teams = teamRepo.findAllByEnabled(true);
+        for (Team team : teams) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("team_id", team.getId());
+            jsonObject.put("team_name", team.getName());
+            jsonArray.add(jsonObject);
+        }
+        return jsonArray;
+    }
+
     @GetMapping(value = "/getplayers")
     @ResponseBody
     public JSONObject getPlayers(@RequestParam("team_id") Long id) {
