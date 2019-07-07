@@ -241,10 +241,10 @@ public class Controller {
 
     @PostMapping(value = "/settinggroup")
     @ResponseBody
-    public void settingGroup(@RequestBody List<Long> body) {
+    public void settingGroup(@RequestBody List<Long> body, @RequestParam Integer round) {
         Collections.shuffle(body);
         for (int i = 0; i + 4 <= body.size(); i += 4) {
-            groupRepo.save(new Group(1, body.get(i+1), body.get(i+2), body.get(i+3), body.get(i)));
+            groupRepo.save(new Group(round, body.get(i+1), body.get(i+2), body.get(i+3), body.get(i)));
         }
     }
 }
