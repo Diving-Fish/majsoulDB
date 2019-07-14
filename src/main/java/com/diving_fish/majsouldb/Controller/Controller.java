@@ -178,8 +178,8 @@ public class Controller {
         Match match = new Match(
                 body.getInt("round"),
                 body.getInt("position"),
-                teams,
                 players,
+                teams,
                 scores
         );
         matchRepo.save(match);
